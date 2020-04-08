@@ -50,7 +50,7 @@ def popular_ai_news():
             #Send the request to the News website
             base_page = requests.get("https://artificialintelligence-news.com/news/")
             #Extract all page text
-            bp_text = bs(base_page.text)
+            bp_text = bs(base_page.text,features="lxml")
             ####Play Background News Music
             music.play()
             speak("Hey {} Here is the top headline for today".format(computer_name))
@@ -91,7 +91,7 @@ while True:
         if "yes" in r.recognize_google(audio):
             ##Play Background News Music
             music.play()
-            speak("Oky, Here is the top headline for today")
+            speak("Okay, Here is the top headline for today")
             for headline in saved_headline:
                 print(headline)
                 speak(headline)
@@ -99,7 +99,7 @@ while True:
             ##Stop Background Music
             music.stop()
         else:
-            speak("Oky, Have a good day")
+            speak("Okay, Have a good day...")
             break
     except:
          speak("Sorry I can't listen properly")
