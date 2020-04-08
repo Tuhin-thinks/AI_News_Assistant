@@ -3,6 +3,7 @@
 #Import all requied module
 from bs4 import BeautifulSoup as bs
 import requests
+import getpass
 import speech_recognition as sr
 import pyttsx3
 import time as t
@@ -53,7 +54,7 @@ def popular_ai_news():
             bp_text = bs(base_page.text,features="lxml")
             ####Play Background News Music
             music.play()
-            speak("Hey {} Here is the top headline for today".format(computer_name))
+            speak("Hey {} Here is the top headline for today".format(getpass.getuser()))
             #Create empty list to store news headlines for later use
             saved_headline = []
             #Search all link which under class "widget techforge-post-types"
